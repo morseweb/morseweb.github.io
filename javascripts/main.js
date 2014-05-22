@@ -110,3 +110,8 @@ function goBackToBlack() {
   console.log("Made black, continue after " + unit);
   setTimeout(PlayLetters, unit);
 }
+
+function submit() {
+  var text = document.getElementById("original").value.toLowerCase();
+  Play(text);
+}
