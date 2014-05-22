@@ -70,7 +70,7 @@ function Play(phrase) {
   // TODO skip " " if empty
   stack = stack + " " + morsePhrase;
   
-  if isPlaying == true {
+  if (isPlaying == true) {
     return;
   }
   isPlaying=true;
