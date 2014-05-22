@@ -74,28 +74,33 @@ function Play(phrase) {
     return;
   }
   isPlaying=true;
+  console.log("start playing stack: " + stack);
   PlayLetters();
 }
 
 function PlayLetters() {
   if(stack == "") {
     isPlaying = false;
+    setInterval(PlayLetters, 1000);
     return;
   }
   var x = stack[0];
   stack = stack.substring(1, stack.length);
+  console.log("Play [" + x + "], remaining  stack: " + stack);
   var l = 0;
   if (x == '.') {
     makeWhite();
     l = 1000;
   } else if (x == '_') {
-    makeWhite
+    makeWhite();
     l = 2000;
   }
+  console.log("go to black after " + l);
   setInterval(goBackToBlack, l);
 }
 
 function goBackToBlack() {
   makeBlack();
+  console.log("Made black, continue after 1000");
   setInterval(PlayLetters, 1000);
 }
