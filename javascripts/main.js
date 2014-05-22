@@ -95,11 +95,11 @@ function PlayLetters() {
     l = 2000;
   }
   console.log("go to black after " + l);
-  setInterval(goBackToBlack, l);
+  setTimeout(goBackToBlack, l);
 }
 
 function goBackToBlack() {
   makeBlack();
   console.log("Made black, continue after 1000");
-  setInterval(PlayLetters, 1000);
+  setTimeout(PlayLetters, 1000);
 }
