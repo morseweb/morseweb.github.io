@@ -107,6 +107,6 @@ function PlayLetters() {
 
 function goBackToBlack() {
   makeBlack();
-  console.log("Made black, continue after 1000");
+  console.log("Made black, continue after " + unit);
   setTimeout(PlayLetters, unit);
 }
