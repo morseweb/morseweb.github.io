@@ -86,7 +86,7 @@ function PlayLetters() {
   var x = stack[0];
   stack = stack.substring(1, stack.length);
   console.log("Play [" + x + "], remaining  stack: [" + stack + "]");
-  var l = 0;
+  var l = 100;
   if (x == '.') {
     makeWhite();
     l = 1000;
