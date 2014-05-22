@@ -1,4 +1,4 @@
-var charCodes=new Array(36);
+var charCodes=new Array(37);
 charCodes["a"]=". _";
 charCodes["b"]="_ . . .";
 charCodes["c"]="_ . _ .";
@@ -35,9 +35,12 @@ charCodes["7"]="_ _ . . .";
 charCodes["8"]="_ _ _ . .";
 charCodes["9"]="_ _ _ _ .";
 charCodes["0"]="_ _ _ _ _";
+charCodes["0"]="_ _ _ _ _";
+charCodes[" "]="=";
 
 var stack = "";
 var isPlaying = false;
+var unit = 100;
 
 function makeColor(color) {
   for (var i in document.styleSheets[0].rules) {
@@ -86,13 +89,17 @@ function PlayLetters() {
   var x = stack[0];
   stack = stack.substring(1, stack.length);
   console.log("Play [" + x + "], remaining  stack: [" + stack + "]");
-  var l = 100;
+  var l = 1;
   if (x == '.') {
     makeWhite();
-    l = 1000;
+    l = unit;
   } else if (x == '_') {
     makeWhite();
-    l = 2000;
+    l = unit * 3;
+  } else if (x == ' ') {
+    l = unit * 2;  // Plus afterwards 1 = 3 
+  } else if (x == '=') {
+    l = unit * 6;  // Plus afterwards 1 = 7
   }
   console.log("go to black after " + l);
   setTimeout(goBackToBlack, l);
@@ -101,5 +108,5 @@ function PlayLetters() {
 function goBackToBlack() {
   makeBlack();
   console.log("Made black, continue after 1000");
-  setTimeout(PlayLetters, 1000);
+  setTimeout(PlayLetters, unit);
 }
