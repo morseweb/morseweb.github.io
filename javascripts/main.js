@@ -81,7 +81,6 @@ function Play(phrase) {
 function PlayLetters() {
   if(stack == "") {
     isPlaying = false;
-    setInterval(PlayLetters, 1000);
     return;
   }
   var x = stack[0];
