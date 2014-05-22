@@ -74,7 +74,7 @@ function Play(phrase) {
     return;
   }
   isPlaying=true;
-  console.log("start playing stack: " + stack);
+  console.log("start playing stack: [" + stack + "]");
   PlayLetters();
 }
 
@@ -85,7 +85,7 @@ function PlayLetters() {
   }
   var x = stack[0];
   stack = stack.substring(1, stack.length);
-  console.log("Play [" + x + "], remaining  stack: " + stack);
+  console.log("Play [" + x + "], remaining  stack: [" + stack + "]");
   var l = 0;
   if (x == '.') {
     makeWhite();
